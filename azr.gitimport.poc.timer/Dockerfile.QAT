@@ -1,0 +1,23 @@
+#See https://aka.ms/containerfastmode to understand how Visual Studio uses this Dockerfile to build your images for faster debugging.
+
+FROM mcr.microsoft.com/dotnet/runtime:6.0 AS base
+RUN apt update && apt install tzdata -y
+ENV TZ=America/Chicago
+WORKDIR /app
+
+FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
+WORKDIR /src
+COPY ["azr.gitimport.poc.timer.csproj", "."]
+RUN dotnet restore "./azr.gitimport.poc.timer.csproj"
+COPY . .
+WORKDIR "/src/."
+RUN dotnet build "azr.gitimport.poc.timer.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "azr.gitimport.poc.timer.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "azr.gitimport.poc.timer.dll"]
+ENV ASPNETCORE_ENVIRONMENT=QAT

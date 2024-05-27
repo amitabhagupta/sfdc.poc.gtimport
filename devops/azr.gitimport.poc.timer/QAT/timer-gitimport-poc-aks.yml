@@ -1,0 +1,31 @@
+- apiVersion: apps/v1
+  kind: Deployment
+  metadata:
+    name: azr-gitimport-poc-timer
+    namespace: azr-ssc-sfd
+  spec:
+    replicas: 1
+    selector:
+      matchLabels:
+        app: azr-gitimport-poc-timer
+    template:
+      metadata:
+        labels:
+          app: azr-gitimport-poc-timer
+      spec:
+        nodeSelector:
+          kubernetes.io/os: linux
+        containers:
+          - name: azr-gitimport-poc-timer
+            image: azrsscsfdqatazcr01.azurecr.io/azr.gitimport.poc.timer:latest
+            volumeMounts:
+            - name: secrets-store01-inline
+              mountPath: "/secrets-store"
+              readOnly: true
+        volumes:
+          - name: secrets-store01-inline
+            csi:
+              driver: secrets-store.csi.k8s.io
+              readOnly: true
+              volumeAttributes:
+                secretProviderClass: "azure-kvname-user-msi"
