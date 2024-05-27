@@ -1,0 +1,29 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  branches:
+    include:
+      - DEV_RC
+      - master
+  paths:
+    include:
+      - azr.gitimport.poc.timer/*
+
+stages:
+  - stage: Build
+    displayName: Docker Build and push stage
+    jobs:
+      - job: DockerBuild
+        displayName: Docker Build
+        steps:       
+          - task: Docker@2
+            inputs:
+              containerRegistry: 'AZRSSCSFDDEVAZCR01'
+              repository: 'azr.gitimport.poc.timer'
+              command: 'buildAndPush'
+              buildContext: 'azr.gitimport.poc.timer/'
+              Dockerfile: 'azr.gitimport.poc.timer/**/Dockerfile.DEV'
+              tags: 'latest'
