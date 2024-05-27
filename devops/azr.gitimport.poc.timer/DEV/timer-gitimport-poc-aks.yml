@@ -17,7 +17,7 @@
           kubernetes.io/os: linux
         containers:
           - name: azr-gitimport-poc-timer
-            image: azrsscsfddevazcr01.azurecr.io/azr.gitimport.poc.timer:latest
+            image: AZR-SSC-SFD-DEV-AZCR.azurecr.io/azr.gitimport.poc.timer:latest
             volumeMounts:
             - name: secrets-store01-inline
               mountPath: "/secrets-store"
