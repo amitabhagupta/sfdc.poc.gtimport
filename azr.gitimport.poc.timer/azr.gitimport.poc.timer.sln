@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "azr.gitimport.poc.timer", "azr.gitimport.poc.timer.csproj", "{CBEA4AD1-F86F-4C0E-BF47-4C82355F14AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBEA4AD1-F86F-4C0E-BF47-4C82355F14AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBEA4AD1-F86F-4C0E-BF47-4C82355F14AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBEA4AD1-F86F-4C0E-BF47-4C82355F14AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBEA4AD1-F86F-4C0E-BF47-4C82355F14AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {60C0D345-D416-4AF7-B22F-526F5EDF3B33}
+	EndGlobalSection
+EndGlobal

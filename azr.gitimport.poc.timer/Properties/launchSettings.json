@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "azr.gitimport.poc.timer": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

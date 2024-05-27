@@ -1,0 +1,70 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net6.0</TargetFramework>
+		<DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+		<DockerfileContext>.</DockerfileContext>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="Models\**" />
+		<EmbeddedResource Remove="Models\**" />
+		<None Remove="Models\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Dapper" Version="2.0.123" />
+		<PackageReference Include="microsoft.extensions.hosting" Version="7.0.1" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+		<PackageReference Include="newtonsoft.json" Version="13.0.1" />
+		<PackageReference Include="Quartz" Version="3.5.0" />
+		<PackageReference Include="Quartz.Extensions.DependencyInjection" Version="3.5.0" />
+		<PackageReference Include="Quartz.Extensions.Hosting" Version="3.5.0" />
+		<PackageReference Include="restsharp" Version="110.1.0" />
+		<PackageReference Include="RestSharp.Newtonsoft.Json" Version="1.5.1" />
+		<PackageReference Include="Serilog.Extensions.Hosting" Version="5.0.1" />
+		<PackageReference Include="Serilog.Settings.Configuration" Version="3.4.0" />
+		<PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
+		<PackageReference Include="Serilog.Sinks.Http" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="7.0.0" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Update="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="appsettings.QAT.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="appsettings.DEV.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="References\AP.Serilog.Sinks.LogAnalyitics.dll">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="AP.Serilog.Sinks.LogAnalyitics">
+			<HintPath>References\AP.Serilog.Sinks.LogAnalyitics.dll</HintPath>
+		</Reference>
+		<Reference Include="azr.ap.integration.store.dataaccess">
+		  <HintPath>References\azr.ap.integration.store.dataaccess.dll</HintPath>
+		</Reference>
+		<Reference Include="azr.ap.intg.msgdef.niceincontact">
+			<HintPath>References\azr.ap.intg.msgdef.niceincontact.dll</HintPath>
+		</Reference>
+		<Reference Include="azr.incontact.library">
+			<HintPath>References\azr.incontact.library.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+</Project>

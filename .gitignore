@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/azr.gitimport.poc.timer/.vs
+/azr.gitimport.poc.timer/bin/Debug/net6.0
+/azr.gitimport.poc.timer/obj
